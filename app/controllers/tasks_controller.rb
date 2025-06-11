@@ -8,7 +8,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     render json: @task, status: :ok
   rescue ActiveRecord::RecordNotFound
-    render json: { error: 'Task not found' }, status: :not_found
+    render json: { error: "Task not found" }, status: :not_found
   end
 
   def create
@@ -28,7 +28,7 @@ class TasksController < ApplicationController
       render json: { errors: @task.errors.full_messages }, status: :unprocessable_entity
     end
   rescue ActiveRecord::RecordNotFound
-    render json: { error: 'Task not found' }, status: :not_found
+    render json: { error: "Task not found" }, status: :not_found
   end
 
   def destroy
@@ -36,7 +36,7 @@ class TasksController < ApplicationController
     @task.destroy
     head :no_content
   rescue ActiveRecord::RecordNotFound
-    render json: { error: 'Task not found' }, status: :not_found
+    render json: { error: "Task not found" }, status: :not_found
   end
 
   private

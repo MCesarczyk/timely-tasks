@@ -13,8 +13,8 @@ class TaskTest < ActiveSupport::TestCase
   end
 
   test "completed can be true or false" do
-    assert_includes [true, false], tasks(:one).completed
-    assert_includes [true, false], tasks(:two).completed
+    assert_includes [ true, false ], tasks(:one).completed
+    assert_includes [ true, false ], tasks(:two).completed
   end
 
   test "content can be blank" do
