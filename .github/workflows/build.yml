@@ -40,5 +40,5 @@ jobs:
           tags: |
             ${{ vars.DOCKER_USERNAME }}/app:latest
             ghcr.io/${{ steps.actor_lc.outputs.lowercase }}/app:latest
-          vars:
-            - DOCS_SERVER_URL=${{ vars.DOCS_SERVER_URL }}
+          vars: |
+            DOCS_SERVER_URL=${{ vars.DOCS_SERVER_URL }}
