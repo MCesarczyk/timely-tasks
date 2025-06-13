@@ -1,6 +1,6 @@
 services:
   app:
-    image: ghcr.io/mcesarczyk/app:latest
+    image: ghcr.io/mcesarczyk/timely-tasks:latest
     container_name: timely-tasks-prod
     restart: always
     env_file:
