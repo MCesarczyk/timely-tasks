@@ -47,7 +47,7 @@ jobs:
         with:
           push: true
           tags: |
-            ${{ vars.DOCKER_USERNAME }}/app:latest
-            ghcr.io/${{ steps.actor_lc.outputs.lowercase }}/app:latest
-          secrets: |
+            ${{ vars.DOCKER_USERNAME }}/timely-tasks:latest
+            ghcr.io/${{ steps.actor_lc.outputs.lowercase }}/timely-tasks:latest
+          build-args: |
             DOCS_SERVER_URL=${{ vars.DOCS_SERVER_URL }}
