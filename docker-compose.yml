@@ -2,10 +2,13 @@ services:
   app:
     image: timely-tasks:latest
     container_name: timely-tasks-prod
+    restart: always
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - DOCS_SERVER_URL=http://localhost:5010
     env_file:
-      - .env
+      - .env.production
     ports:
       - "5010:3000"
