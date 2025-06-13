@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - id: actor_lc
-        uses: ASzc/change-string-case-action@v2
+        uses: ASzc/change-string-case-action@v6
         with:
           string: ${{ github.actor }}
 
