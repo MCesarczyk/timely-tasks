@@ -24,7 +24,7 @@ RSpec.configure do |config|
       paths: {},
       servers: [
         {
-          url: ENV.fetch('DOCS_SERVER_URL', 'http://localhost:5000'),
+          url: ENV.fetch('DOCS_SERVER_URL', 'http://localhost:5000')
           # url: "http://{defaultHost}",
           # variables: {
           #   defaultHost: {

@@ -12,7 +12,7 @@ RSpec.describe 'tasks', type: :request do
           content: { type: :string, example: 'Milk, Bread, Eggs' },
           completed: { type: :boolean, example: false }
         },
-        required: ['title', 'content']
+        required: [ 'title', 'content' ]
       }
       response '201', 'task created' do
         let(:task) { { title: 'Buy groceries', content: 'Milk, Bread, Eggs', completed: false } }
@@ -60,7 +60,7 @@ RSpec.describe 'tasks', type: :request do
           content: { type: :string, example: 'Milk, Bread, Eggs' },
           completed: { type: :boolean, example: false }
         },
-        required: ['title']
+        required: [ 'title' ]
       }
 
       response '200', 'task updated' do
