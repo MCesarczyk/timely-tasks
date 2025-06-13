@@ -35,6 +35,8 @@ jobs:
 
       - name: Build and push to multiple registries
         uses: docker/build-push-action@v6
+        build-args: |
+          DOCS_SERVER_URL=${ vars.DOCS_SERVER_URL }
         with:
           push: true
           tags: |
