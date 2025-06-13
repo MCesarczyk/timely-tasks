@@ -1,0 +1,112 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/tasks":
+    post:
+      summary: Creates a new task
+      tags:
+      - Tasks
+      parameters: []
+      responses:
+        '201':
+          description: task created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Buy groceries
+                content:
+                  type: string
+                  example: Milk, Bread, Eggs
+                completed:
+                  type: boolean
+                  example: false
+              required:
+              - title
+              - content
+    get:
+      summary: Retrieves all tasks
+      tags:
+      - Tasks
+      responses:
+        '200':
+          description: tasks found
+  "/tasks/{id}":
+    get:
+      summary: Retrieves a task
+      tags:
+      - Tasks
+      parameters:
+      - name: id
+        in: path
+        description: Task ID
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: task found
+        '404':
+          description: task not found
+    put:
+      summary: Updates a task
+      tags:
+      - Tasks
+      parameters:
+      - name: id
+        in: path
+        description: Task ID
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: task updated
+        '404':
+          description: task not found
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: Buy groceries
+                content:
+                  type: string
+                  example: Milk, Bread, Eggs
+                completed:
+                  type: boolean
+                  example: false
+              required:
+              - title
+    delete:
+      summary: Deletes a task
+      tags:
+      - Tasks
+      parameters:
+      - name: id
+        in: path
+        description: Task ID
+        required: true
+        schema:
+          type: integer
+      responses:
+        '204':
+          description: task deleted
+        '404':
+          description: task not found
+servers:
+- url: http://localhost:5000

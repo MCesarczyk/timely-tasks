@@ -42,6 +42,13 @@ RUN bundle install && \
 # Copy application code
 COPY . .
 
+# # Swaggerdocs server URL for API documentation
+ARG DOCS_SERVER_URL
+ENV DOCS_SERVER_URL=$DOCS_SERVER_URL
+
+# # Regenerate Swagger API documentation
+RUN RAILS_ENV=test bundle exec rake rswag:specs:swaggerize
+
 # Precompile bootsnap code for faster boot times
 RUN bundle exec bootsnap precompile app/ lib/
 
