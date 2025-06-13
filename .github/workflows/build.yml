@@ -41,8 +41,6 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-        vars: |
-          DOCS_SERVER_URL=${{ vars.DOCS_SERVER_URL }}
 
       - name: Build and push to multiple registries
         uses: docker/build-push-action@v6
@@ -51,3 +49,5 @@ jobs:
           tags: |
             ${{ vars.DOCKER_USERNAME }}/app:latest
             ghcr.io/${{ steps.actor_lc.outputs.lowercase }}/app:latest
+          secrets: |
+            DOCS_SERVER_URL=${{ vars.DOCS_SERVER_URL }}
